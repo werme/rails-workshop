@@ -1,0 +1,110 @@
+
+$dark: #262626;
+$light: white;
+$color: #E84D7E;
+$dark-color: #C7426C;
+
+* { box-sizing: border-box; }
+
+ 
+html {
+  background: $dark;
+}
+
+body {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  font: 150%/1.7 "proxima-nova";
+  color: $light;
+}
+
+a {
+  color: $color;
+  text-decoration: none;
+
+  &:hover { color: $dark-color; } 
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+ul {
+  padding: 0;
+  li {
+    padding: 0 0.2em;
+    list-style: none;
+
+    &:nth-child(odd) {
+      background: #333;
+    }
+  }
+}
+
+input[type=text], input[type=number], textarea {
+  display: block;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0.4em 0.6em;
+  
+  font-size: 1.4rem;
+  background: #333;
+  color: white;
+  border: 0;
+}
+
+input[type=submit] {
+  width: auto;
+  font-size: 1.4rem;
+  //padding: 0.4em !important;
+}
+
+select {
+  margin: 0 0 1rem;
+  padding: 0.4em 0.6em;
+  
+  color: $dark;
+  background: white;
+  font-size: 1rem;
+}
+
+header {
+  border-bottom: 5px dotted #333;
+  margin-bottom: 1rem;
+  
+  h1 {
+    margin: 1rem auto;
+
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  a { 
+    color: white;
+    &:hover { color: white; } 
+  }
+}
+
+.edit-link {
+  float: right;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+
+  background: $dark-color;
+  border-radius: 3px;
+  color: white;
+
+  &:hover { 
+    color: white;
+    background: $color;
+  }
+}

@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   belongs_to :category
 
-  validates :title, presence: true, uniqueness: true, length: { in: 2..60 }
+  validates :title, presence: true, uniqueness: { :case_sensitive => false }, length: { in: 2..60 }
   validates :category, presence: true
   validates :rating, :inclusion => 1..10
 

@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
     redirect_to movie_path movie
   end
 
-  def filter_movies
+  def filter
     @movies = Movie.by_category(filter_category_params).by_rating(filter_rating_params)
     render :template => 'movies/index'
   end

@@ -1,5 +1,5 @@
-<%= form_tag('/filter_movies') do %>
-  <%= select_tag :category, options_from_collection_for_select(Category.all, 'id', 'title') %>
-  <%= select_tag :rating, options_for_select(1..10) %>
+<%= form_tag(filter_path) do %>
+  <%= select_tag :category, options_from_collection_for_select(Category.all, 'id', 'title', params[:category]) %>
+  <%= select_tag :rating, options_for_select(1..10, params[:rating]) %>
   <%= submit_tag "Filter" %>
 <% end %>

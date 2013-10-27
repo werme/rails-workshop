@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(movie_params)
+    Movie.create movie_params
     redirect_to :root
   end
 
@@ -23,12 +23,13 @@ class MoviesController < ApplicationController
 
   def update
     movie = Movie.find params[:id]
-    movie.update(movie_params)
+    movie.update movie_params
     redirect_to movie_path movie
   end
 
   def filter_movies
     @movies = Movie.by_category(filter_category_params).by_rating(filter_rating_params)
+    render :template => 'movies/index'
   end
 
   private

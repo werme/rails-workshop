@@ -1,13 +1,3 @@
-<%= form_tag('/filter_movies') do %>
-  <%= select_tag :category, options_from_collection_for_select(Category.all, 'id', 'title') %>
-  <%= select_tag :rating, options_for_select(1..10) %>
-  <%= submit_tag "Filter" %>
-<% end %>
-
-<ul>
-  <% @movies.each do |movie| %>
-    <li><%= link_to movie.title, movie %><%= link_to "Edit movie", edit_movie_path(movie), class: "edit-link" %></li>
-  <% end %>
-</ul>
-
+<%= render "filter_form" %>
+<%= render "list" %>
 <%= link_to "New movie", new_movie_path, class: "button" %>

@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
   before_update :accept_by_jesper 
 
   scope :by_category, ->(category) { where category_id: category }
-  scope :by_rating, ->(rating) { where "rating > ?", rating }
+  scope :by_rating, ->(rating) { where "rating >= ?", rating }
 
   private
 

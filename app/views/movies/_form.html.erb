@@ -1,3 +1,15 @@
+<% if @movie.errors.any? %>
+  <div id="error_explanation">
+    <p><%= pluralize(@movie.errors.count, "error") %> prohibited this post from being saved:</p>
+ 
+    <ol>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ol>
+  </div>
+<% end %>
+
 <%= form_for(@movie) do |m| %>
   <%= m.text_field :title %>
   <%= m.text_area :description %>

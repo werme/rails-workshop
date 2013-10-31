@@ -12,6 +12,9 @@
 <body>
 
 <header>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
   <h1><%= link_to "Movies", root_path %></h1>
 </header>
 

@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  def index
+  def list
     @movies = Movie.all
   end
 
@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to movie_path(@movie), notice: "Movie was successfully added."
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 
   def filter
     @movies = Movie.by_category(filter_category_params).by_rating(filter_rating_params)
-    render :template => 'movies/index'
+    render action: "list"
   end
 
   private

@@ -1,10 +1,11 @@
 Workshop::Application.routes.draw do
   
-  root 'movies#index'
+  root 'movies#list'
 
   resources :movies
 
   post 'filter', to: 'movies#filter'
+  get  'filter', to: 'movies#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

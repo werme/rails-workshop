@@ -11,8 +11,8 @@
 <% end %>
 
 <%= form_for(@movie) do |m| %>
-  <%= m.text_field :title %>
-  <%= m.text_area :description %>
+  <%= m.text_field :title, placeholder: "Title" %>
+  <%= m.text_area :description, placeholder: "Description" %>
   <%= m.number_field :rating %>
   <%= m.select :category_id, Category.all.collect {|c| [ c.title, c.id ] } %>
   <%= m.submit %>

@@ -32,7 +32,10 @@ class MoviesController < ApplicationController
   end
 
   def filter
-    @movies = Movie.by_category(filter_category_params).by_rating(filter_rating_params)
+    category = params.require(:category)
+    rating = params.require(:rating)
+
+    @movies = Movie.by_category(category).by_rating(rating)
     render action: "list"
   end
 
@@ -40,13 +43,5 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:title, :description, :rating, :category_id)
-  end
-
-  def filter_category_params
-    params.require(:category)
-  end
-
-  def filter_rating_params
-    params.require(:rating)
   end
 end

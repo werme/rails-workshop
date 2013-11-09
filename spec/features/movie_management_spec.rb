@@ -16,4 +16,12 @@ feature "Movie management" do
 
     expect(page).to have_text "Movie was successfully added."
   end
+
+  scenario "User tries to adds an invalid movie" do
+    visit "/movies/new"
+
+    click_button "Create Movie"
+
+    expect(page).to have_text "3 errors prohibited this post from being saved"
+  end
 end

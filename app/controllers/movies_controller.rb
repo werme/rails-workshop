@@ -27,15 +27,15 @@ class MoviesController < ApplicationController
 
   def update
     movie = Movie.find params[:id]
-    movie.update movie_params
-    redirect_to movie_path movie
+    if movie.update movie_params
+      redirect_to movie_path movie, notice: "Movie was successfully updated."
+    else
+      render action: "edit"
+    end
   end
 
   def filter
-    category = params.require(:category)
-    rating = params.require(:rating)
-
-    @movies = Movie.by_category(category).by_rating(rating)
+    @movies = Movie.by_category(params[:category]).by_rating(params[:rating])
     render action: "list"
   end
 

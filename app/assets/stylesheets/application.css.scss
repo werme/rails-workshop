@@ -1,8 +1,9 @@
 
-$dark: #262626;
+$dark: #282942;
 $light: white;
 $color: #E84D7E;
-$dark-color: #C7426C;
+$dark-color: darken($color, 5%);
+$red: #f55;
 
 * { box-sizing: border-box; }
 
@@ -11,9 +12,9 @@ html {
 }
 
 body {
-  max-width: 30rem;
+  max-width: 35rem;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 8rem;
 
   font: 150%/1.7 "proxima-nova";
   color: $light;
@@ -28,18 +29,25 @@ a {
 
 h1 {
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 ul {
   padding: 0;
+  margin: 0.7rem 0 2rem;
+  border: 3px solid darken($dark, 3%);
+  border-radius: 8px;
+  overflow: hidden;
+
   li {
-    padding: 0 0.2em;
+    padding: 0 0.4em;
     list-style: none;
 
     &:nth-child(odd) {
-      background: #333;
+      background: darken($dark, 2%);
     }
+
+    &:hover { background: darken($dark, 3%); }
 
     &:before,
     &:after {
@@ -61,12 +69,14 @@ input[type=text], input[type=number], textarea {
   display: block;
   width: 100%;
   margin: 0 0 1rem;
-  padding: 0.4em 0.6em;
+  padding: 0.4em 0.5em;
   
   font-size: 1.4rem;
-  background: #333;
+  background: darken($dark, 2%);
   color: white;
-  border: 2px solid #444;
+  border: 3px solid darken($dark, 4%);
+
+  &::-webkit-input-placeholder { color: lighten($dark, 10%); }
 }
 
 input[type=submit] {
@@ -85,14 +95,13 @@ select {
 }
 
 header {
-  border-bottom: 5px dotted #333;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem;
+  border-bottom: 5px dashed darken($dark, 3%);
   
   h1 {
-    margin: 1rem auto;
-
-    font-size: 3rem;
-    font-weight: bold;
+    margin: 0rem auto;
+    font-family: 'gooddog-new';
+    font-size: 4rem;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 0.1em;
@@ -110,10 +119,11 @@ header {
 
 .button {
   display: inline-block;
-  padding: 0.1em 0.4em;
+  padding: 0.1em 0.5em;
+  float: right;
 
   background: $dark-color;
-  border-radius: 3px;
+  border-radius: 5px;
   color: white;
 
   &:hover { 
@@ -122,6 +132,10 @@ header {
   }
 }
 
+.form-error p { 
+  color: $red;
+}
+
 .notice { color: green; }
 .alert { color: yellow; }
-.error { color: red; }
+.error { color: $red; }

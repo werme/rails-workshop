@@ -3,7 +3,8 @@ class Movie < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: { :case_sensitive => false }, length: { in: 2..60 }
   validates :category, presence: true
-  validates :rating, :inclusion => 1..10
+  validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
+  validate :sanity
 
   before_update :accept_by_jesper 
 
@@ -12,6 +13,12 @@ class Movie < ActiveRecord::Base
 
   private
 
+  def sanity
+    if category.title == "Romantic Comedy" and rating > 5
+      errors.add("Rating: ","A romantic comedy can't possibly be that good.")
+    end
+  end
+
   def accept_by_jesper
     if self.title == 'Old Boy'
       self.rating = 10
@@ -19,3 +26,4 @@ class Movie < ActiveRecord::Base
     end
   end
 end
+

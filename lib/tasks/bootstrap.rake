@@ -1,7 +1,7 @@
 namespace :bootstrap do
   desc "Add default categories"
   task :default_categories => :environment do
-    ['Comedy', 'Thriller', 'Science Fiction', 'Horror', 'Drama', 'Documentary', 'Action', 'Family'].each do |title|
+    ['Comedy', 'Romantic Comedy', 'Thriller', 'Science Fiction', 'Horror', 'Drama', 'Documentary', 'Action', 'Family'].each do |title|
       Category.create(title: title)
     end
   end

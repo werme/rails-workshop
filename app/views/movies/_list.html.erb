@@ -1,5 +1,5 @@
 <ul>
   <% @movies.each do |movie| %>
-    <li><%= link_to movie.title, movie %><%= link_to "Edit movie", edit_movie_path(movie), class: "edit-link" %></li>
+    <li><%= link_to movie.title, movie %></li>
   <% end %>
 </ul>

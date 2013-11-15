@@ -8,3 +8,16 @@
 </ul>
 
 <%= link_to "Edit movie", edit_movie_path(@movie), class: "button" %>
+
+<% unless @movie.reviews.empty? %>
+  <h2>Reviews</h2>
+<% end %>
+
+<% @movie.reviews.each do |review| %>
+  <div class="review">
+    <h3><%= review.title %> by <%= review.author %></h3>
+    <p>
+      <%= review.body %>
+    </p>
+  </div>
+<% end %>

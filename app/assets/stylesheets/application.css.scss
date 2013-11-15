@@ -9,13 +9,13 @@ $red: #f55;
 
 html {
   background: $dark;
+  font: 16px%/1.7 "proxima-nova";
 }
 
 body {
   max-width: 35rem;
   margin: 0 auto;
   padding: 2rem 0 8rem;
-
   font: 150%/1.7 "proxima-nova";
   color: $light;
 }
@@ -27,9 +27,16 @@ a {
   &:hover { color: $dark-color; } 
 }
 
-h1 {
+h1, h2, h3 {
   font-weight: normal;
-  font-size: 2.4rem;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 2rem; }
+h3 { 
+  font-size: 1.2rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.2rem;
 }
 
 ul {
@@ -65,6 +72,11 @@ ul {
   }
 }
 
+hr {
+  margin: 2rem 1rem;
+  border: 0;
+  border-bottom: 5px dashed darken($dark, 3%);}
+
 input[type=text], input[type=number], textarea {
   display: block;
   width: 100%;
@@ -82,7 +94,6 @@ input[type=text], input[type=number], textarea {
 input[type=submit] {
   width: auto;
   font-size: 1.4rem;
-  //padding: 0.4em !important;
 }
 
 select {
@@ -120,7 +131,6 @@ header {
 .button {
   display: inline-block;
   padding: 0.1em 0.5em;
-  float: right;
 
   background: $dark-color;
   border-radius: 5px;
@@ -129,6 +139,26 @@ header {
   &:hover { 
     color: white;
     background: $color;
+  }
+}
+
+.review {
+  margin-bottom: 1rem;
+  border: 3px solid darken($dark, 3%);
+  border-radius: 8px;
+  overflow: hidden;
+
+  h3 { 
+    margin: 0;
+    padding: 0.2rem 0.6rem;
+    background: darken($dark, 2%);
+  }
+
+  p {
+    margin: 0;
+    padding: 0.6rem;
+
+    font-size: 1.2rem;
   }
 }
 

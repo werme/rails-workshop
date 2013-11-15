@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
   belongs_to :category
+  has_many :reviews
 
   validates :title, presence: true, uniqueness: { :case_sensitive => false }, length: { in: 2..60 }
   validates :category, presence: true
@@ -26,4 +27,3 @@ class Movie < ActiveRecord::Base
     end
   end
 end
-

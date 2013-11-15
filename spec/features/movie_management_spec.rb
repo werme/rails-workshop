@@ -9,15 +9,15 @@ feature "Movie management" do
   def addMovie
     visit "/movies/new"
 
-    fill_in "Title", :with => "My awesome movie"
+    fill_in "Title", with: "My awesome movie"
     select "Comedy", from: "movie_category_id"
-    fill_in "movie_rating", :with => "1"
+    fill_in "movie_rating", with: "1"
     click_button "Create Movie"
   end
 
   scenario "User adds a new movie" do
     expect { addMovie }.to change(Movie, :count)
-    expect(page).to have_text "Movie was successfully added."
+    expect(page).to have_text "Movie was successfully created."
   end
 
   scenario "User tries to adds an invalid movie" do

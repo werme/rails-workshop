@@ -14,15 +14,15 @@ class Movie < ActiveRecord::Base
   private
 
   def sanity
-    if category.title == "Romantic Comedy" and rating > 5
+    if self.category and self.category.title == "Romantic Comedy" and self.rating > 5
       errors.add("Rating: ","A romantic comedy can't possibly be that good.")
     end
   end
 
   def accept_by_jesper
-    if self.title == 'Old Boy'
+    if self.title == "Old Boy"
       self.rating = 10
-      self.description = 'Best movie ever made'
+      self.description = "Best movie ever made"
     end
   end
 end

@@ -17,6 +17,6 @@
   <%= m.text_area :description, placeholder: "Write as many spoilers as you can!" %>
   <%= m.label :rating %>
   <%= m.number_field :rating %>
-  <%= m.select :category_id, Category.all.collect {|c| [ c.title, c.id ] } %>
+  <%= m.collection_select :category_id, Category.all,:id, :title %>
   <%= m.submit %>
 <% end %>

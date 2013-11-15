@@ -6,7 +6,7 @@ class Movie < ActiveRecord::Base
   validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
   validate :sanity
 
-  before_update :accept_by_jesper 
+  before_save :accept_by_jesper 
 
   scope :by_category, ->(category) { where category_id: category }
   scope :by_rating, ->(rating) { where "rating >= ?", rating }

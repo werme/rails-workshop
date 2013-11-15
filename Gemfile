@@ -18,4 +18,5 @@ group :test do
   gem 'factory_girl_rails'
 end
 
-gem "rack-mini-profiler", "~> 0.1.31"
+gem 'rack-mini-profiler', '~> 0.1.31'
+gem 'annotate', '~> 2.5', group: :development

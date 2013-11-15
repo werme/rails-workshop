@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  rating      :integer
+#  category_id :integer
+#
+
 class Movie < ActiveRecord::Base
   belongs_to :category
   has_many :reviews

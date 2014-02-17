@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workshop</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript" src="//use.typekit.net/ubm0jwo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+
+<header>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+  <h1><%= link_to "Movies", root_path %></h1>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

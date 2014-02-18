@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
+  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4249c40167/UntitledProject3/style.css">
+
   <script type="text/javascript" src="//use.typekit.net/ubm0jwo.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
@@ -15,13 +17,20 @@
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
-    <h1>Movie Database</h1>
+    <h1><%= link_to "Movie Database", root_path %></h1>
+    <%= link_to content_tag(:i, '', class: "icon-list"), root_path %>
   </div>
 </header>
 
 <div class="wrapper">
   <%= yield %>
 </div>
+
+<footer>
+  <div class="wrapper">
+    Build with <span class="color">&hearts;</span> at CTK.
+  </div>
+</footer>
 
 </body>
 </html>

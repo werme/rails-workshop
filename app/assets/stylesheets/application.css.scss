@@ -9,11 +9,12 @@ $red: #f55;
 
 html {
   background: $dark;
+  font: 28px/1.7 "proxima-nova";
 }
 
 body {
   margin: 0 auto;
-  font: 150%/1.7 "proxima-nova";
+  font-weight: 300;
   color: $light;
   overflow: auto;
   
@@ -27,9 +28,17 @@ a {
   &:hover { color: $dark-color; } 
 }
 
+p {
+  margin: 0 0 1.4rem;
+}
+
 h1 {
-  font-weight: normal;
-  font-size: 2.4rem;
+  margin: 2rem 0 1rem;
+  font: 2.8rem 'gooddog-new';
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-rendering: optimizelegibility;
 }
 
 ul {
@@ -67,54 +76,49 @@ ul {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 35rem;
-}
-
-input[type=text], input[type=number], textarea {
-  display: block;
-  width: 100%;
-  margin: 0 0 1rem;
-  padding: 0.4em 0.5em;
-  
-  font-size: 1.4rem;
-  background: darken($dark, 2%);
-  color: white;
-  border: 3px solid darken($dark, 4%);
-
-  &::-webkit-input-placeholder { color: lighten($dark, 10%); }
-}
-
-input[type=submit] {
-  width: auto;
-  font-size: 1.4rem;
-  //padding: 0.4em !important;
-}
-
-select {
-  margin: 0 0 1rem;
-  padding: 0.4em 0.6em;
-  
-  color: $dark;
-  background: white;
-  font-size: 1rem;
+  max-width: 22rem;
+  @extend .clearfix;
 }
 
 header {
   // margin: 0 1rem 1rem;
   background: lighten($dark, 10%);
+
+  .wrapper {
+    position: relative;
+  }
   
   h1 {
+    display: inline-block;
     margin: 0rem auto;
+    padding: 0.2rem 0;
     font-family: 'gooddog-new';
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
   a { 
     color: white;
-    &:hover { color: white; } 
+    &:hover { color: lighten($dark, 60%); } 
   }
+
+  i {
+    position: absolute;
+    top: 0.35rem;
+    right: 0;
+    font-size: 1.2rem;
+  }
+}
+
+footer {
+  padding: 2rem 0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: lighten($dark, 20%);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .landing {
@@ -127,22 +131,61 @@ header {
     text-align: center;
     
     h1 {
-      font-size: 4rem;
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
     }
   }
 } 
+
+
+input[type=text], input[type=number], textarea {
+  display: block;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0.3em 0.4em;
+
+  font: 1rem 'proxima-nova';
+  background: darken($dark, 2%);
+  color: white;
+  border: 3px solid darken($dark, 4%);
+  outline: none;
+
+  transition: all 0.2s;
+
+  &::-webkit-input-placeholder { color: lighten($dark, 10%); }
+
+  &:focus { border-color: $color; }
+}
+
+input[type=submit], button {
+  font: 1rem 'proxima-nova';
+  font-weight: 100;
+  background: red;
+  border: 0;
+  padding: 0.4em 0.6em !important;
+}
+
+select {
+  margin: 0 0 1rem;
+  padding: 0.4em 0.6em;
+  
+  color: $dark;
+  background: white;
+  font-size: 0.8rem;
+}
   
 .edit-link {
   float: right;
 }
 
-.button {
+.button, input[type=submit], button {
   display: inline-block;
   padding: 0.1em 0.5em;
   float: right;
 
   background: $dark-color;
   border-radius: 5px;
+  border-bottom: 3px solid darken($dark-color, 20%);
   color: white;
 
   &:hover { 
@@ -150,6 +193,8 @@ header {
     background: $color;
   }
 }
+
+.color { color: $color; }
 
 .form-error p { 
   color: $red;

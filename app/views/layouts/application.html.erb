@@ -11,12 +11,17 @@
 <body>
 
 <header>
-  <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: name %>
-  <% end -%>
+  <div class="wrapper">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+    <h1>Movie Database</h1>
+  </div>
 </header>
 
-<%= yield %>
+<div class="wrapper">
+  <%= yield %>
+</div>
 
 </body>
 </html>

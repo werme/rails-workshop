@@ -8,7 +8,7 @@
   <script type="text/javascript" src="//use.typekit.net/ubm0jwo.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body>
+<body class="landing">
 
 <header>
   <% flash.each do |name, msg| -%>
@@ -17,7 +17,9 @@
   <h1><%= link_to "Movies", root_path %></h1>
 </header>
 
-<%= yield %>
+<div class="wrapper">
+  <%= yield %>
+</div>
 
 </body>
 </html>

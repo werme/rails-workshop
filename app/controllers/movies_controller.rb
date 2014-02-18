@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def list
     @movies = Movie.all
+    render layout: "landing"
   end
 
   def show

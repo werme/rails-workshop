@@ -15,15 +15,11 @@ class Movie < ActiveRecord::Base
   belongs_to :category
   has_many :reviews
 
-  validates :title, presence: true, uniqueness: { :case_sensitive => false }, length: { in: 2..60 }
+  validates :title, presence: true, uniqueness: { case_sensitive: false }, length: { in: 2..60 }
   validates :category, presence: true
   validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
-  validate :sanity
 
-  before_save :accept_by_jesper 
-
-  scope :by_category, ->(category) { where category_id: category }
-  scope :by_rating, ->(rating) { where "rating >= ?", rating }
+  before_save :accept_by_jesper , :update_info_from_omdb
 
   private
 
@@ -38,5 +34,21 @@ class Movie < ActiveRecord::Base
       self.rating = 10
       self.description = "Best movie ever made"
     end
+  end
+
+  def update_info_from_omdb
+    result = query_omdb(self.title)
+
+    self.year        = result["Year"]
+    self.description = result["Plot"]
+    self.poster_uri  = result["Poster"]
+  end
+
+  def query_omdb(query)
+    require 'open-uri'
+    require 'json'
+
+    uri = URI.parse(URI.encode("http://www.omdbapi.com/?t=#{query.strip}"))
+    result = JSON.parse(open(uri).read)
   end
 end

@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def list
     @movies = Movie.all
+    render layout: "landing"
   end
 
   def show
@@ -27,16 +28,19 @@ class MoviesController < ApplicationController
 
   def update
     movie = Movie.find params[:id]
+    
     if movie.update movie_params
-      redirect_to movie_path movie, notice: "Movie was successfully updated."
+      redirect_to movie, notice: "Movie was successfully updated."
     else
-      render action: "edit"
+      redirect_to edit_movie_path(movie)
     end
   end
 
-  def filter
-    @movies = Movie.by_category(params[:category]).by_rating(params[:rating])
-    render action: "list"
+  def destroy
+    movie = Movie.find params[:id]
+    movie.destroy
+
+    redirect_to :root
   end
 
   private

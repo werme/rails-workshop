@@ -1,5 +1,12 @@
 <ul>
   <% @movies.each do |movie| %>
-    <li><%= link_to movie.title, movie %><%= link_to "Edit movie", edit_movie_path(movie), class: "edit-link" %></li>
+    <li>
+
+      <%= button_to movie, method: :delete, class: "delete-button" do %>
+        <i class="icon-close"></i>
+      <% end %>
+      <%= link_to content_tag(:i, '', class: "icon-pencil"), edit_movie_path(movie) %>
+      
+      <%= link_to movie.title, movie %>
   <% end %>
 </ul>

@@ -13,8 +13,6 @@
 <%= form_for(@movie) do |m| %>
   <%= m.label :title %>
   <%= m.text_field :title, placeholder: "My awesome movie title" %>
-  <%= m.label :description %>
-  <%= m.text_area :description, placeholder: "Write as many spoilers as you can!" %>
   <%= m.label :rating %>
   <%= m.number_field :rating %>
   <%= m.collection_select :category_id, Category.all,:id, :title %>

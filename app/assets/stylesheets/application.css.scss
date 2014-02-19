@@ -1,15 +1,35 @@
 
+// VARIABLES //
+
 $dark: #282942;
 $light: white;
 $color: #E84D7E;
 $dark-color: darken($color, 5%);
 $red: #f55;
 
+// MIXINS //
+
+@mixin clearfix {
+    zoom:1;
+    clear: both;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// BASE //
+
 * { box-sizing: border-box; }
 
 html {
   background: $dark;
-  font: 28px/1.7 "proxima-nova";
+  font: 28px/1.6 "proxima-nova";
 }
 
 body {
@@ -18,7 +38,7 @@ body {
   color: $light;
   overflow: auto;
   
-  @extend .clearfix;
+  @include clearfix;
 }
 
 a {
@@ -30,6 +50,18 @@ a {
 
 p {
   margin: 0 0 1.4rem;
+
+  &.intro {
+    @include clearfix;
+  }
+}
+
+img {
+  float: left;
+  margin-right: 1rem;
+  max-height: 300px;
+  max-width: 250px;
+  border-radius: 8px;
 }
 
 h1 {
@@ -52,42 +84,23 @@ ul {
     padding: 0 0.4em;
     list-style: none;
 
-    &:nth-child(odd) {
-      background: darken($dark, 2%);
-    }
-
-    &:hover { background: darken($dark, 3%); }
-
-    &:before,
-    &:after {
-        content:"";
-        display:table;
-    }
-
-    &:after {
-        clear:both;
-    }
-
-    & {
-        *zoom:1;
-    }
+    &:nth-child(odd) { background: darken($dark, 2%); }
+    &:hover { background: lighten($dark, 3%); }
   }
 }
+
+// LAYOUT //
 
 .wrapper {
   margin: 0 auto;
+  position: relative;
   max-width: 22rem;
-  @extend .clearfix;
+  @include clearfix;
 }
 
 header {
-  // margin: 0 1rem 1rem;
   background: lighten($dark, 10%);
-
-  .wrapper {
-    position: relative;
-  }
-  
+ 
   h1 {
     display: inline-block;
     margin: 0rem auto;
@@ -137,6 +150,7 @@ footer {
   }
 } 
 
+// FORMS & BUTTONS //
 
 input[type=text], input[type=number], textarea {
   display: block;
@@ -194,7 +208,7 @@ select {
   }
 }
 
-.color { color: $color; }
+// ERRORS //
 
 .form-error p { 
   color: $red;
@@ -204,15 +218,7 @@ select {
 .alert { color: yellow; }
 .error { color: $red; }
 
-.clearfix {
-    zoom:1;
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
-}
+
+// MISC //
+
+.color { color: $color; }

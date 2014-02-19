@@ -1,8 +1,20 @@
+
 <h1><%= @movie.title %></h1 >
 
-<p><%= @movie.description %></p>
+<p class="intro">
+  <% unless @movie.poster_uri.blank? or @movie.poster_uri == "N/A" %>
+    <img src="<%= @movie.poster_uri %>" alt="">
+  <% end %>
+
+  <% unless @movie.description.blank? or @movie.description == "N/A" %>
+    <%= @movie.description %>
+  <% end %>
+</p>
 
 <ul>
   <li>Rating: <%= @movie.rating %></li>
   <li>Category: <%= @movie.category.title %></li>
+  <% if @movie.year.present? %>
+    <li>Year: <%= @movie.year %></li>
+  <% end %>
 </ul>

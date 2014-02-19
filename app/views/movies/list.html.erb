@@ -1,2 +1,4 @@
 <%= render "list" %>
-<%= link_to "New movie", new_movie_path, class: "button" %>
+<%= link_to new_movie_path, class: "button" do %>
+  <i class="icon-file push"></i> New movie
+<% end %>

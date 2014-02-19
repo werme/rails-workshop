@@ -20,7 +20,9 @@
   <% end %>
 </ul>
 
-<%= link_to "Edit movie", edit_movie_path(@movie), class: "button edit-link" %>
+<%= link_to edit_movie_path(@movie), class: "button" do %>
+  <i class="icon-edit push"></i> Edit movie
+<% end %>
 
 <% unless @movie.reviews.empty? %>
   <h2>Reviews</h2>

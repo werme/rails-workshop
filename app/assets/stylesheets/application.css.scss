@@ -6,6 +6,7 @@ $light: white;
 $color: #E84D7E;
 $dark-color: darken($color, 5%);
 $red: #f55;
+$green: #63FF97;
 
 // MIXINS //
 
@@ -249,7 +250,7 @@ button.delete-button {
   color: $red;
 }
 
-.notice { color: green; }
+.notice { color: $green; }
 .alert { color: yellow; }
 .error { color: $red; }
 

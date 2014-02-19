@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @categories = Category.all.map(&:title)
+    @categories = Category.all.map &:title 
   end
 
   def create
@@ -27,19 +27,17 @@ class MoviesController < ApplicationController
   end
 
   def update
-    movie = Movie.find params[:id]
+    @movie = Movie.find params[:id]
     
-    if movie.update movie_params
-      redirect_to movie, notice: "Movie was successfully updated."
+    if @movie.update movie_params
+      redirect_to @movie, notice: "Movie was successfully updated."
     else
-      redirect_to edit_movie_path(movie)
+      render action: "edit"
     end
   end
 
   def destroy
-    movie = Movie.find params[:id]
-    movie.destroy
-
+    movie = Movie.find(params[:id]).destroy
     redirect_to :root
   end
 

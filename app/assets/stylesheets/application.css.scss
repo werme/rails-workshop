@@ -86,6 +86,12 @@ ul {
 
     &:nth-child(odd) { background: darken($dark, 2%); }
     &:hover { background: lighten($dark, 3%); }
+
+    i {
+      padding: 0.34rem;
+      float: right;
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -205,6 +211,19 @@ select {
   &:hover { 
     color: white;
     background: $color;
+  }
+}
+
+button.delete-button {
+  padding: 0 !important;
+  height: 40px;
+  background: none;
+  border: none;
+  color: $color;
+  cursor: pointer;
+
+  &:hover {
+    color: $dark-color;
   }
 }
 

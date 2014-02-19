@@ -23,11 +23,17 @@ class MoviesController < ApplicationController
   end
 
   def edit
-
+    @movie = Movie.find params[:id]
   end
 
   def update
-
+    movie = Movie.find params[:id]
+    
+    if movie.update movie_params
+      redirect_to movie
+    else
+      redirect_to edit_movie_path(movie)
+    end
   end
 
   def destroy

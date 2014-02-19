@@ -1,0 +1,24 @@
+<% if @movie.errors.any? %>
+  <div id="error_explanation" class="form-error">
+    <p><%= pluralize(@movie.errors.count, "error") %> prohibited this post from being saved:</p>
+ 
+    <ol>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ol>
+  </div>
+<% end %>
+
+<%= form_for(@movie) do |m| %>
+  <%= m.label :title %>
+  <%= m.text_field :title, placeholder: "My awesome movie title" %>
+  <%= m.label :description %>
+  <%= m.text_area :description, placeholder: "Be sure to give as many spoilers as you can" %>
+  <%= m.label :rating %>
+  <%= m.number_field :rating %>
+  <%= m.label :year %>
+  <%= m.number_field :year %>
+  <%= m.collection_select :category_id, Category.all,:id, :title %>
+  <%= m.submit %>
+<% end %>

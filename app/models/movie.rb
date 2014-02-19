@@ -19,7 +19,8 @@ class Movie < ActiveRecord::Base
   validates :category, presence: true
   validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
 
-  before_save :accept_by_jesper , :update_info_from_omdb
+  before_create :update_info_from_omdb
+  before_save :accept_by_jesper
 
   private
 

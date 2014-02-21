@@ -31,7 +31,11 @@ $yellow: #FFB129;
 
 html {
   background: $dark;
-  font: 24px/1.6 "proxima-nova";
+  font: 1.2em/1.6 "proxima-nova";
+
+  @media (min-width: 35em) {
+    font-size: 1.5em;
+  }
 }
 
 body {
@@ -59,20 +63,30 @@ p {
 }
 
 img {
-  float: left;
-  margin-right: 1rem;
-  max-height: 300px;
-  max-width: 250px;
+  display: block;
+  max-width: 100%;
+  margin-bottom: 1rem;
   border-radius: 8px;
+
+  @media (min-width: 28em) {
+    float: left;
+    max-width: 250px;
+    max-height: 300px;
+    margin: 0 1rem 0 0;
+  }
 }
 
 h1 {
   margin: 2rem 0 1rem;
-  font: 2.8rem 'gooddog-new';
+  font: 2.2rem 'gooddog-new';
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.2;
   text-rendering: optimizelegibility;
+
+  @media (min-width: 35em) {
+    font-size: 2.8rem;
+  }
 }
 
 ul {
@@ -101,8 +115,9 @@ ul {
 
 .wrapper {
   margin: 0 auto;
+  padding: 0 1rem;
   position: relative;
-  max-width: 22rem;
+  max-width: 24rem;
   @include clearfix;
 }
 
@@ -127,7 +142,7 @@ header {
   .icon-list {
     position: absolute;
     top: 0.35rem;
-    right: 0;
+    right: 0.35rem;
     font-size: 1.2rem;
   }
 }
@@ -143,7 +158,7 @@ footer {
 }
 
 .landing {
-  margin: 2rem;
+  margin: 2rem auto;
 
   header {
     margin-top: 2rem;

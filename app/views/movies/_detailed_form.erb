@@ -19,6 +19,8 @@
   <%= m.number_field :rating %>
   <%= m.label :year %>
   <%= m.number_field :year %>
+  <%= m.label :poster %>
+  <%= m.text_field :poster_uri %>
   <%= m.collection_select :category_id, Category.all,:id, :title %>
   <%= m.submit %>
 <% end %>

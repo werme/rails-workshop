@@ -16,6 +16,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new movie_params
     if @movie.save
+      flash[:alert] = "Tried to fetch additional information from omdb, please edit if incorrect." if @movie.year.present?
       redirect_to movie_path(@movie), notice: "Movie was successfully created."
     else
       render action: "new"

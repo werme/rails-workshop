@@ -12,6 +12,8 @@
 #
 
 class Movie < ActiveRecord::Base
+  include OMDB
+
   belongs_to :category
   has_many :reviews
 
@@ -20,7 +22,7 @@ class Movie < ActiveRecord::Base
   validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
 
   before_create :update_info_from_omdb
-  before_save :accept_by_jesper
+  before_save :accept_by_jesper, :sanity
 
   private
 
@@ -43,13 +45,5 @@ class Movie < ActiveRecord::Base
     self.year        = result["Year"]
     self.description = result["Plot"]
     self.poster_uri  = result["Poster"]
-  end
-
-  def query_omdb(query)
-    require 'open-uri'
-    require 'json'
-
-    uri = URI.parse(URI.encode("http://www.omdbapi.com/?t=#{query.strip}"))
-    result = JSON.parse(open(uri).read)
   end
 end

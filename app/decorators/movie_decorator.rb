@@ -7,8 +7,10 @@ class MovieDecorator < Draper::Decorator
       "very epic"
     when 9
       "slightly epic"
-    when 3..8
+    when 6..8
       "not that epic"
+    when 3..5
+      "far from epic"
     else
       "horrible"
     end

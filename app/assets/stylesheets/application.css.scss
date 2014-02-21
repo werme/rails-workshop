@@ -31,7 +31,7 @@ $yellow: #FFB129;
 
 html {
   background: $dark;
-  font: 28px/1.6 "proxima-nova";
+  font: 24px/1.6 "proxima-nova";
 }
 
 body {
@@ -234,7 +234,7 @@ select {
 
 button.delete-button {
   padding: 0 !important;
-  height: 40px;
+  height: 1.3rem;
   background: none;
   border: none;
   color: $color;
@@ -252,9 +252,8 @@ button.delete-button {
 }
 
 .notice { color: $green; }
-.alert { color: yellow; }
+.alert { color: $yellow; }
 .error { color: $red; }
-
 
 // MISC //
 

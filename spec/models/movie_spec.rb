@@ -22,7 +22,7 @@ describe Movie do
 
   context "when title is too short" do
 
-    it "it is invalid" do
+    it "is invalid" do
       movie = FactoryGirl.build(:movie, title: "A")
       expect(movie).to be_invalid
     end
@@ -30,7 +30,7 @@ describe Movie do
 
    context "when no category is given" do
 
-    it "it is invalid" do
+    it "is invalid" do
       movie = FactoryGirl.build(:movie, category: nil)
       expect(movie).to be_invalid
     end
@@ -38,7 +38,7 @@ describe Movie do
 
    context "when rating is too high" do
 
-    it "it is invalid" do
+    it "is invalid" do
       movie = FactoryGirl.build(:movie, rating: 11)
       expect(movie).to be_invalid
     end

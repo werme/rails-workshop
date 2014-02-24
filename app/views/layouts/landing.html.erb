@@ -8,27 +8,18 @@
   <script type="text/javascript" src="//use.typekit.net/ubm0jwo.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body>
+<body class="landing">
 
 <header>
-  <div class="wrapper">
-    <h1><%= link_to "Movie Database", root_path %></h1>
-    <%= link_to content_tag(:i, '', class: "icon-list"), root_path %>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-  </div>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+  <h1>Movies</h1>
 </header>
 
 <div class="wrapper">
   <%= yield %>
 </div>
-
-<footer>
-  <div class="wrapper">
-    Build with <span class="color">&hearts;</span> at <a href="http://www.ctk.se" class="yellow">CTK</a>.
-  </div>
-</footer>
 
 <%= javascript_include_tag "application" %>
 

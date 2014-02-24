@@ -1,9 +1,38 @@
+
 <h1><%= @movie.title %></h1 >
 
+<p class="intro">
+  <% unless @movie.poster_uri.blank? or @movie.poster_uri == "N/A" %>
+    <img src="<%= @movie.poster_uri %>" alt="">
+  <% end %>
+
+  <% unless @movie.description.blank? or @movie.description == "N/A" %>
+    <%= @movie.description %>
+  <% end %>
+</p>
+
 <ul>
-  <li>Description: <%= @movie.description %></li>
   <li>Rating: <%= @movie.rating %></li>
+  <li>Epicness: This movie is <%= @movie.epicness %>.</li>
   <li>Category: <%= @movie.category.title %></li>
+  <% if @movie.year.present? %>
+    <li>Year: <%= @movie.year %></li>
+  <% end %>
 </ul>
 
-<%= link_to "Edit movie", edit_movie_path(@movie), class: "button" %>
+<%= link_to edit_movie_path(@movie), class: "button" do %>
+  <i class="icon-edit push"></i> Edit movie
+<% end %>
+
+<% unless @movie.reviews.empty? %>
+  <h2>Reviews</h2>
+
+  <% @movie.reviews.each do |review| %>
+    <div class="review">
+      <h3><%= review.title %> by <%= review.author %></h3>
+      <p>
+        <%= review.body %>
+      </p>
+    </div>
+  <% end %>
+<% end %>

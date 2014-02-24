@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  rating      :integer
+#  category_id :integer
+#
+
 describe Movie do
 
   let(:category) { FactoryGirl.create :category }

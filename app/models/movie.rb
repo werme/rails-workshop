@@ -20,11 +20,12 @@ class Movie < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }, length: { in: 2..60 }
   validates :category, presence: true
   validates :rating, inclusion: { in: 1..10, message: "%{value} is not in valid range 1 - 10." }
+  validate :sanity
 
   scope :by_category, -> category { where(category: category) }
 
-  before_create :update_info_from_omdb
-  before_save :accept_by_jesper, :sanity
+  before_create :update_info_from_omdb, :accept_by_jesper
+  before_save :accept_by_jesper
 
   private
 

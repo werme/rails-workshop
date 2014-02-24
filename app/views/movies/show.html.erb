@@ -24,15 +24,17 @@
   <i class="icon-edit push"></i> Edit movie
 <% end %>
 
-<% unless @movie.reviews.empty? %>
-  <h2>Reviews</h2>
+<div class="reviews-container">
+  <% unless @movie.reviews.empty? %>
+    <h2>Reviews</h2>
 
-  <% @movie.reviews.each do |review| %>
-    <div class="review">
-      <h3><%= review.title %> by <%= review.author %></h3>
-      <p>
-        <%= review.body %>
-      </p>
-    </div>
+    <% @movie.reviews.each do |review| %>
+      <div class="review">
+        <h3><%= review.title %> <em>by <%= review.author %></em></h3>
+        <p>
+          <%= review.body %>
+        </p>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

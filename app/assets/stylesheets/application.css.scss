@@ -78,13 +78,16 @@ img {
   }
 }
 
+h1, h2, h3 {
+  font-weight: 300;
+  text-rendering: optimizelegibility;
+}
+
 h1 {
   margin: 2rem 0 1rem;
   font: 2.2rem 'gooddog-new';
-  font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.2;
-  text-rendering: optimizelegibility;
 
   @media (min-width: 35em) {
     font-size: 2.8rem;
@@ -124,7 +127,7 @@ ul {
 }
 
 header {
-  background: lighten($dark, 10%);
+  background: rgba(255,255,255,0.1);
  
   h1 {
     display: inline-block;
@@ -173,6 +176,31 @@ footer {
     }
   }
 } 
+
+.reviews-container {
+  @include clearfix;
+  padding: 1rem 0;
+
+  h2 {
+    margin: 0 0 0.4rem;
+  }
+}
+.review {
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 1rem;
+  padding: 0.4rem;
+  h3 {
+    font: 0.8rem/1.8 'proxima-nova';
+    font-weight: 300;
+    border-bottom: 2px solid $color;
+    letter-spacing: 0;
+    margin: -0.1rem 0 0.1rem;
+  }
+  p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}
 
 // FORMS & BUTTONS //
 
@@ -226,26 +254,6 @@ select {
   &:hover { 
     color: white;
     background: $color;
-  }
-}
-
-.review {
-  margin-bottom: 1rem;
-  border: 3px solid darken($dark, 3%);
-  border-radius: 8px;
-  overflow: hidden;
-
-  h3 { 
-    margin: 0;
-    padding: 0.2rem 0.6rem;
-    background: darken($dark, 2%);
-  }
-
-  p {
-    margin: 0;
-    padding: 0.6rem;
-
-    font-size: 1.2rem;
   }
 }
 

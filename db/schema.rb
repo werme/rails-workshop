@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224085614) do
+ActiveRecord::Schema.define(version: 20140224092119) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20140224085614) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movie_id"
   end
+
+  add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id"
 
 end
